@@ -6,7 +6,7 @@
 <p><a href="{% url 'add_contact' %}">Add New Contact</a></p>
 
 <div class="flex flex-wrap">
-  {% for contact in contacts %}
+  
   <div class="w-33 pa3">
     <h2>{{ contact.name }}</h2>
 
@@ -37,7 +37,7 @@
 
     {% if contact.birthday %}
     <div class="flex">
-      <div class="pr2"><i class="icofont-birthday"></i></div>
+      <div class="pr2"></div>
       <div>{{ contact.birthday }}</div>
     </div>
     {% endif %}
@@ -55,6 +55,5 @@
       <a class="red" href="{% url 'delete_contact' pk=contact.pk %}">Delete Contact</a>
     </p>
   </div>
-  {% endfor %}
 </div>  
 {% endblock %}
