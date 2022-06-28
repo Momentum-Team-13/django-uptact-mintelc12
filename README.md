@@ -58,11 +58,12 @@ For the first assignment, spend time familiarizing yourself with Django. Look at
 
 Then do the following steps:
 
-1. Add a birthday field to the `Contact` model. This field should be of type `DateField` and should be allowed to be null and empty.
-2. Make sure you can edit the birthday by changing the `ContactForm`.
-3. Add the ability to display the birthday on the list of contacts. You will have to edit `templates/contacts/list_contacts.html`.
+1. Add a birthday field to the `Contact` model. *DONE* 
+This field should be of type `DateField` and should be allowed to be null and empty.
+2. Make sure you can edit the birthday by changing the `ContactForm`. *DONE*
+3. Add the ability to display the birthday on the list of contacts. You will have to edit `templates/contacts/list_contacts.html`. *DONE*
 
-When you get through that, add a birthday to one of your contacts to test out your code.
+When you get through that, add a birthday to one of your contacts to test out your code. *DONE*
 
 ## Task 2
 
@@ -75,9 +76,9 @@ Answer the following questions:
 
 Then do the following steps:
 
-1. Add a new model, `Note`, to the `contacts` app. This model should contain text for the note and the date/time of the note. Look at the `auto_now_add` option for the `DateTimeField` to have the date/time automatically populated.
-2. Connect the `Note` model to the `Contact` model using a `ForeignKey`.
-3. Use the Django console to add a note to one of your contacts.
+1. Add a new model, `Note`, to the `contacts` app. This model should contain text for the note and the date/time of the note. Look at the `auto_now_add` option for the `DateTimeField` to have the date/time automatically populated. *DONE*
+2. Connect the `Note` model to the `Contact` model using a `ForeignKey`. *DONE*
+3. Use the Django console to add a note to one of your contacts. *DONE*
 4. Make a new view and template to see an individual contact. The URL for this view should be `contacts/<int:pk>/`. Show the notes for that contact on this individual view. Otherwise, this page can look like an individual contact on the contacts list page.
 
 ## Task 3

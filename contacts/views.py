@@ -6,8 +6,9 @@ from .forms import ContactForm
 # Create your views here.
 def list_contacts(request):
     contacts = Contact.objects.all()
+    # Django ORM running SQL queries for us in the database and returning instances of the Contact model
     return render(request, "contacts/list_contacts.html",
-                  {"contacts": contacts})
+                {"contacts": contacts})
 
 
 def add_contact(request):
@@ -45,4 +46,8 @@ def delete_contact(request, pk):
         return redirect(to='list_contacts')
 
     return render(request, "contacts/delete_contact.html",
-                  {"contact": contact})
+                {"contact": contact})
+
+def view_contact(request, pk):
+    contact = get_object_or_404(Contact, pk=pk)
+    return render(request, "contacts/view_contact.html", {"contact": contact})
