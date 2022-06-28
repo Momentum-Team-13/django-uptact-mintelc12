@@ -22,10 +22,13 @@ class Contact(models.Model):
     state = USStateField(null=True, blank=True)
     zip_code = USZipCodeField(null=True, blank=True)
     birthday = models.DateField(null=True, blank=True)
-    note = models.ForeignKey("Note", on_delete=models.CASCADE, related_name="Note_about_Contact", null=True, blank=True)
+    # note = models.ForeignKey("Note", on_delete=models.CASCADE, related_name="Note_about_Contact", null=True, blank=True)
     
 class Note(models.Model):
-    note = models.CharField(max_length=255, null=True, blank=True)
-    post_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    
+    note = models.TextField(blank=True, null=True)
+    note_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    contact = models.ForeignKey("Contact", on_delete=models.CASCADE, related_name="note_on_contact", blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.note}'
 
