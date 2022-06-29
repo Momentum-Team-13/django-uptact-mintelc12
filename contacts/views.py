@@ -10,9 +10,10 @@ from django.utils import timezone
 # Create your views here.
 def list_contacts(request):
     contacts = Contact.objects.all()
+    notes = Note.objects.filter()
     # Django ORM running SQL queries for us in the database and returning instances of the Contact model
     return render(request, "contacts/list_contacts.html",
-                {"contacts": contacts})
+                {"contacts": contacts, "notes": notes})
 
 
 def add_contact(request):
@@ -20,6 +21,7 @@ def add_contact(request):
         form = ContactForm()
     else:
         form = ContactForm(data=request.POST)
+        
         if form.is_valid():
             form.save()
             return redirect(to='list_contacts')
@@ -37,10 +39,11 @@ def edit_contact(request, pk):
             form.save()
             return redirect(to='list_contacts')
 
-    return render(request, "contacts/edit_contact.html", {
+    return render(request, "contacts/edit_contact.html",  {
         "form": form,
         "contact": contact
-    })
+    }) 
+    
 
 
 def delete_contact(request, pk):
@@ -69,3 +72,10 @@ def add_contact_note(request, pk):
             new_note.save()
             return redirect(to='view_contact', pk=pk)
     return render(request, "contacts/note_form.html", {"contact": contact, "form": form}) 
+
+# def delete_contact_note(request, pk):
+#     note = get_object_or_404(Contact, pk=pk)
+#     if request.method =="POST":
+#         note.delete()
+#         return redirect(to='view_contact')
+#     return render(request, "contacts/view_contact.html", {"contact": contact})

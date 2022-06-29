@@ -4,8 +4,9 @@
 <h1>Contact</h1>
 
 <p><a href="{% url 'add_contact' %}" method="POST">Add Contact</a></p>
+<p><a href="{% url 'list_contacts' %}">View All Contacts</a></p>
 
-<div class="flex flex-wrap">
+<div class="flex">
   
   <div class="w-33 pa3">
     <h2>{{ contact.name }}</h2>
@@ -42,14 +43,6 @@
     </div>
     {% endif %}
 
-    {% if contact.note %}
-    <div class="flex">
-        <div class="pr2">
-            <div>{{ contact.note }}</div>
-        </div>
-    </div>
-    {% endif %}
-
     {% if notes %}
     <div class="flex">
       {% for note in notes %}
@@ -67,7 +60,7 @@
       </div>
     </div>
     {% endif %}
-    
+
     <p>
       <a href="{% url 'view_note' pk=contact.pk %}">Add Note</a>
       <a href="{% url 'edit_contact' pk=contact.pk %}">Edit Contact</a><br>    

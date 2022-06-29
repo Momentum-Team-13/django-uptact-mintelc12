@@ -22,7 +22,7 @@ class Contact(models.Model):
     state = USStateField(null=True, blank=True)
     zip_code = USZipCodeField(null=True, blank=True)
     birthday = models.DateField(null=True, blank=True)
-    # note = models.ForeignKey("Note", on_delete=models.CASCADE, related_name="Note_about_Contact", null=True, blank=True)
+    
     
 class Note(models.Model):
     note = models.TextField(blank=True, null=True)
